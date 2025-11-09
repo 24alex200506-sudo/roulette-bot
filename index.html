@@ -1,0 +1,41 @@
+# roulette-bot
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift Go</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { background: #1a1a1a; color: white; min-height: 100vh; padding: 20px; text-align: center; }
+        .title { font-size: 32px; font-weight: bold; margin-bottom: 10px; }
+        .wheel { width: 250px; height: 250px; background: conic-gradient(red, yellow, green, blue, purple, orange); border-radius: 50%; margin: 20px auto; border: 5px solid #333; }
+        button { background: #4CAF50; color: white; padding: 15px 30px; border: none; border-radius: 25px; font-size: 18px; margin: 20px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="title">Gift Go</div>
+    <div>ITACHI CHEATS</div>
+    <div class="wheel" id="wheel"></div>
+    <button onclick="spin()">🎯 Крутить рулетку</button>
+    
+    <script>
+        function spin() {
+            const wheel = document.getElementById('wheel');
+            wheel.style.transform = 'rotate(720deg)';
+            setTimeout(() => {
+                alert('🎉 Вы выиграли 100 🎁!');
+                if (typeof Telegram !== 'undefined' && Telegram.WebApp) {
+                    Telegram.WebApp.sendData(JSON.stringify({prize: "100"}));
+                }
+            }, 2000);
+        }
+
+        if (typeof Telegram !== 'undefined' && Telegram.WebApp) {
+            Telegram.WebApp.ready();
+            Telegram.WebApp.expand();
+        }
+    </script>
+</body>
+</html>

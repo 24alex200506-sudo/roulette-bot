@@ -1,2 +1,0 @@
-# roulette-bot
-я ебал
